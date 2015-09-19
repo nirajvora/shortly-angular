@@ -3,13 +3,21 @@
 <ul>
   <li><a href='#/links'>Links</a></li>
   <li><a href='#/shorten'>Shorten</a></li>
+  <li><a href='#/signin'>Logout</a></li>
 </ul>
 </nav>
+
   <ul>
-    <li ng-repeat="link in data.links track by $index">{{ link.title }}
-    {{ link.url }}
-    {{ link.base_url + '/' + link.code }}
-    Visits: {{ link.visits }}
+    <li class="link" ng-repeat="link in data.links track by $index">
+    <a href="{{ link.base_url }}/api/links/{{link.code}}" class="stuff">
+    <img src="../assets/redirect_icon.png"> </img>
+    <ul class='info'>
+      <li class='title'>{{ link.title }}</li>
+      <li class='original'>{{ link.url }}</li>
+      <li> {{ link.base_url + '/' + link.code }}</li>
+    </ul>
+    </a>
+    <a class='visits'> Visits: <div class='count'> {{ link.visits }}</div></a>
     </li>
 
   </ul>
